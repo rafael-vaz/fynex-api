@@ -1,0 +1,16 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Fynex.Api/Fynex.Api.csproj" />
+    <Project Path="src/Fynex.Application/Fynex.Application.csproj" />
+    <Project Path="src/Fynex.Communication/Fynex.Communication.csproj" />
+    <Project Path="src/Fynex.Domain/Fynex.Domain.csproj" />
+    <Project Path="src/Fynex.Exception/Fynex.Exception.csproj" />
+    <Project Path="src/Fynex.Infrastructure/Fynex.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/CommonTestUtilities/CommonTestUtilities.csproj" />
+    <Project Path="tests/UseCases.Test/UseCases.Test.csproj" Id="4496f423-9986-4bb7-badc-5e1374b5d297" />
+    <Project Path="tests/Validators.Test/Validators.Test.csproj" Id="fa07bfd6-13c2-40dc-88d8-7d6eaab7d3cb" />
+    <Project Path="tests/WebApi.Test/WebApi.Test.csproj" Id="3ecee81e-ce9e-47bf-9c3c-0da2eb5096a9" />
+  </Folder>
+</Solution>
