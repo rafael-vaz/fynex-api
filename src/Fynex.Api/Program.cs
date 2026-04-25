@@ -10,6 +10,9 @@ using System.Text;
 using Fynex.Infrastructure.Extensions;
 using Fynex.Domain.Security.Tokens;
 using Fynex.Api.Token;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
+using Fynex.Infrastructure.DataAccess;
 
 var builder = WebApplication.CreateBuilder(args);
 var signingKey = builder.Configuration.GetValue<string>("Settings:Jwt:SigningKey");
@@ -88,8 +91,19 @@ builder.Services.AddAuthentication(options =>
 });
 
 builder.Services.AddAuthorization();
+builder.Services.AddHealthChecks().AddDbContextCheck<FynexDbContext>();
 
 var app = builder.Build();
+app.MapHealthChecks("/health", new HealthCheckOptions
+{
+    AllowCachingResponses = false,
+    ResultStatusCodes =
+    {
+        [HealthStatus.Healthy] = StatusCodes.Status200OK,        
+        [HealthStatus.Unhealthy] = StatusCodes.Status503ServiceUnavailable
+    }
+});
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
