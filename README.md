@@ -189,8 +189,8 @@ Enums used in `RequestExpenseJson`:
 1. Clone the repository:
 
 ```bash
-git clone <repository-url>
-cd Fynex
+git clone https://github.com/rafael-vaz/fynex-api
+cd fynex-api
 ```
 
 2. Restore packages:
